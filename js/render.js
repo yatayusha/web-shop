@@ -12,15 +12,59 @@ function renderCatalog() {
   
   function renderCart() {
     const list = document.getElementById('cart-items');
+  
     list.innerHTML = Object.entries(cart).map(([id, qty]) => {
       const product = products.find(p => p.id === Number(id));
+  
       return `
-        <li data-id="${id}">
-          ${product.name} — ${product.price} ₽
-          <button class="qty-btn" data-id="${id}" data-delta="-1">−</button>
-          ${qty}
-          <button class="qty-btn" data-id="${id}" data-delta="1">+</button>
-          <button class="remove-btn" data-id="${id}">Удалить</button>
+        <li class="cart-item" data-id="${id}">
+  
+          <!-- Картинка -->
+          <div class="cart-image">
+            <img src="${product.image}" alt="${product.name}">
+          </div>
+  
+          <!-- Название товара -->
+          <div class="cart-info">
+            <h3>${product.name}</h3>
+          </div>
+  
+          <!-- Количество -->
+          <div class="quantity-control">
+  
+            <button
+              class="qty-btn"
+              data-id="${id}"
+              data-delta="-1">
+              −
+            </button>
+  
+            <span class="quantity">
+              ${qty} шт.
+            </span>
+  
+            <button
+              class="qty-btn"
+              data-id="${id}"
+              data-delta="1">
+              +
+            </button>
+  
+          </div>
+  
+          <!-- Цена -->
+          <div class="cart-price">
+            ${product.price * qty} ₽
+          </div>
+  
+          <!-- Удалить -->
+          <button
+            class="remove-btn"
+            data-id="${id}"
+            aria-label="Удалить товар">
+            ×
+          </button>
+  
         </li>
       `;
     }).join('');
