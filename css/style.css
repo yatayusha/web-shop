@@ -1,3 +1,69 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-    background: rgb(255, 254, 233);
-  }
+  font-family: 'Arimo';
+  color: #1d4420;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff7e4;
+  color: #fff7e4;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.product-card img { width: 100%; border-radius: 4px; }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: #fff7e4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px; right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* планшет */
+@media (max-width: 900px) {
+  .catalog { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* телефон */
+@media (max-width: 500px) {
+  .catalog { grid-template-columns: 1fr; }
+  .site-header { flex-direction: column; gap: 0.5rem; }
+}
