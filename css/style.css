@@ -1,7 +1,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Arimo';
+  font-family: 'Montserrat Medium';
   color: #1d4420;
 }
 
@@ -11,15 +11,14 @@ body {
   align-items: center;
   padding: 1rem 2rem;
   background: #fff7e4;
-  color: #fff7e4;
+  color: #1d4420;
 }
 
 .catalog {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  padding: 2rem;
-}
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
 
 .product-card {
   border: 1px solid #ddd;
@@ -39,6 +38,10 @@ body {
   justify-content: center;
 }
 
+.modal[hidden] {
+    display: none;
+  }
+
 .modal-content {
   background: white;
   padding: 2rem;
@@ -57,12 +60,10 @@ body {
   cursor: pointer;
 }
 
-/* планшет */
 @media (max-width: 900px) {
   .catalog { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* телефон */
 @media (max-width: 500px) {
   .catalog { grid-template-columns: 1fr; }
   .site-header { flex-direction: column; gap: 0.5rem; }
