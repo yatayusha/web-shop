@@ -46,4 +46,5 @@ document.addEventListener('DOMContentLoaded', () => {
     cart = {};
     saveCart();
     renderCart();
+    
   });

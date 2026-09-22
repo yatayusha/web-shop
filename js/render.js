@@ -71,4 +71,7 @@ function renderCatalog() {
   
     document.getElementById('cart-total').textContent = getCartTotal();
     document.getElementById('cart-count').textContent = getCartCount();
+
+    const checkoutBtn = document.getElementById('checkout-btn');
+    checkoutBtn.disabled = getCartCount() === 0;
   }
